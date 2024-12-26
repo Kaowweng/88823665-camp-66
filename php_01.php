@@ -9,7 +9,7 @@
 <div class = " container">
     <div class="card shadow mt-5">
         <?php $data = 2 ?>
-        <div class="card-header bg-success text-white text-center">
+        <div class="card-header bg-primary text-white text-center">
             <h4>Multiplication Table for <?php echo $data; ?></h4>
             
         </div>

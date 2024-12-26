@@ -12,15 +12,15 @@
     
         <div class="card shadow mt-5 mx-auto" >
             <div class="card-body">
-                <h2 class="text-center mb-4">Multiplication Table Generator</h2>
+                <h2 class="text-center mb-4">Multiplication</h2>
                 <form method="post" action="">
                   
                     <div class="mb-3">
                         <label for="number" class="form-label">Enter a Number</label>
-                        <input name="detail" type="number" class="form-control" id="number" placeholder="Enter a number" required>
+                        <input name="detail" type="number" class="form-control" id="number"  required>
                     </div>
                     <div class="d-grid">
-                        <button class="btn btn-success btn-block" type="submit">Generate Table</button>
+                        <button class="btn btn-primary btn-block" type="submit">Sumbit</button>
                     </div>
                 </form>
             </div>
@@ -33,7 +33,7 @@
             $data = $_POST['detail'];
         ?>
         <div class="card shadow mt-5">
-            <div class="card-header bg-success text-white text-center">
+            <div class="card-header bg-primary text-white text-center">
                 <h4>Multiplication Table for <?php echo $data; ?></h4>
              
             </div>
