@@ -11,7 +11,7 @@
        
         <div class="card shadow mt-5 mx-auto">
             <div class="card-body">
-                <h2 class="text-center mb-4">Multiplication Table Generator</h2>
+                <h2 class="text-center mb-4">Multiplication  Generator</h2>
                 <form method="post" action="">
                     <div class="mb-3">
                         <label for="start" class="form-label">Enter Start Number</label>
