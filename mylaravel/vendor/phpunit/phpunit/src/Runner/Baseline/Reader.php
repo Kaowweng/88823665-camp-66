@@ -50,8 +50,7 @@ final readonly class Reader
         } catch (XmlException $e) {
             throw new CannotLoadBaselineException(
                 sprintf(
-                    'Cannot read baseline %s: %s',
-                    $baselineFile,
+                    'Cannot read baseline: %s',
                     trim($e->getMessage()),
                 ),
             );
