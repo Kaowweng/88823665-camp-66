@@ -2,45 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
-use App\Http\Controllers\homecontroller;
-use App\Http\Controllers\logincontroller;
-use App\Http\Controllers\registercontroller;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/mylaravel/{id?}',[Mycontroller::class,'myfunction']);
+Route::post('/mylaravel/{id?}',[Mycontroller::class,'myfunction']);
 
-Route::get('/hello', function () {
-    return "<h1>Happy very much!</h1>";
-});
+Route::get('/user',  [UserController::class,'index']);
 
-Route::get("/mylaravel/{id?}", 
-[MyController::class,'myfunction']);
+Route::get('/register',  [RegisterController::class,'index']);
+Route::post('/register',  [RegisterController::class,'create']);
 
-Route::post("/mylaravel/{id?}", 
-[MyController::class,'myfunction']);
+Route::get('/login',  [LoginController::class,'index']);
+Route::post('/login',  [LoginController::class,'index']);
 
 
-Route::get("/home", 
-[homecontroller::class,'index']);
+Route::get('/user/{id}',  [UserController::class,'edit']);
+Route::put('/user' ,[UserController::class, 'edit_user']);
+Route::delete('/user',[UserController::class, 'delete']);
 
-Route::post("/home", 
-[homecontroller::class,'index']);
-
-Route::get("/", 
-[homecontroller::class,'index']);
-
-Route::post("/", 
-[homecontroller::class,'index']);
-
-Route::get("/login", 
-[logincontroller::class,'index']);
-
-Route::post("/login", 
-[logincontroller::class,'index']);
-
-Route::get("/register", 
-[registercontroller::class,'index']);
-
-Route::post("/register", 
-[registercontroller::class,'index']);
+Route::get( '/', [HomeController::class, 'index']);
+Route::post('/', [HomeController::class, 'index']);
+Route::get( '/home', [HomeController::class, 'index']);
+Route::post('/home', [HomeController::class, 'index']);
