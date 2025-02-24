@@ -1,4 +1,5 @@
 @extends('layouts.default')
+
 @section('content')
 <div class="login-page">
     <div class="login-box">
@@ -9,13 +10,24 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-                <form action="../index3.html" method="post">
+                <form action="{{url('/login')}}" method="post">
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" />
+                        <input type="email" name = "email" value="{{isset($email)?$email:""}}"class="form-control" placeholder="Email" />
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                    
                     </div>
+                <?php
+                        $error = session()->get('error');
+                        if($error){    
+                        ?>
+                        <div class="text-danger">
+                        {{$error}}
+                        </div>
+                        <?php
+                        }?>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" />
+                        <input type="password" name = "password"class="form-control" placeholder="Password" />
                         <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                     </div>
                     <!--begin::Row-->
@@ -27,29 +39,15 @@
                             </div>
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Sign In</button>
-                            </div>
-                        </div>
                         <!-- /.col -->
+                    </div>
+                    <div class="col-12 py-1">
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                        </div>
                     </div>
                     <!--end::Row-->
                 </form>
-                <div class="social-auth-links text-center mb-3 d-grid gap-2">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-primary">
-                        <i class="bi bi-facebook me-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-danger">
-                        <i class="bi bi-google me-2"></i> Sign in using Google+
-                    </a>
-                </div>
-                <!-- /.social-auth-links -->
-                <p class="mb-1"><a href="forgot-password.html">I forgot my password</a></p>
-                <p class="mb-0">
-                    <a href="register.html" class="text-center"> Register a new membership </a>
-                </p>
             </div>
             <!-- /.login-card-body -->
         </div>
